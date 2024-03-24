@@ -21,20 +21,20 @@ def main():
 
     # Example input fields, replace with actual features you want to use for prediction
     feature1 = st.sidebar.slider('Humidity3pm', min_value=0.0, max_value=100.0, value=50.0)
-    feature2 = st.sidebar.slider('Rainfall', min_value=0.0, max_value=100.0, value=50.0)
-    feature3 = st.sidebar.slider('RainToday', min_value=0.0, max_value=100.0, value=50.0)
+    feature2 = st.sidebar.slider('Rainfall', min_value=0.0, max_value=371.0, value=50.0)
+    feature3 = st.sidebar.slider('RainToday', ['No','Yes'])
     feature4 = st.sidebar.slider('Humidity9am', min_value=0.0, max_value=100.0, value=50.0)
-    feature5 = st.sidebar.slider('Pressure9am', min_value=0.0, max_value=100.0, value=50.0)
-    feature6 = st.sidebar.slider('WindGustSpeed', min_value=0.0, max_value=100.0, value=50.0)
-    feature7 = st.sidebar.slider('Pressure3pm', min_value=0.0, max_value=100.0, value=50.0)
-    feature8 = st.sidebar.slider('Temp3pm', min_value=0.0, max_value=100.0, value=50.0)
-    feature9 = st.sidebar.slider('MaxTemp', min_value=0.0, max_value=100.0, value=50.0)
-    feature10 = st.sidebar.slider('WindDir9am', min_value=0.0, max_value=100.0, value=50.0)
-    feature11 = st.sidebar.slider('WindGustDir', min_value=0.0, max_value=100.0, value=50.0)
-    feature12 = st.sidebar.slider('WindDir3pm', min_value=0.0, max_value=100.0, value=50.0)
-    feature13 = st.sidebar.slider('MinTemp', min_value=0.0, max_value=100.0, value=50.0)
-    feature14 = st.sidebar.slider('WindSpeed9am', min_value=0.0, max_value=100.0, value=50.0)
-    feature15 = st.sidebar.slider('WindSpeed3pm', min_value=0.0, max_value=100.0, value=50.0)
+    feature5 = st.sidebar.slider('Pressure9am', min_value=980.50, max_value=1041.0, value=50.0)
+    feature6 = st.sidebar.slider('WindGustSpeed', min_value=6.0, max_value=135.0, value=50.0)
+    feature7 = st.sidebar.slider('Pressure3pm', min_value=977.0, max_value=1039.0, value=50.0)
+    feature8 = st.sidebar.slider('Temp3pm', min_value=-5.40, max_value=46.0, value=50.0)
+    feature9 = st.sidebar.slider('MaxTemp', min_value=-4.80, max_value=48.10, value=50.0)
+    feature10 = st.sidebar.slider('WindDir9am', ['W','N','E','S','WSW','SSW','NW','ESE','NNW','SE','SSE','SW','WNW','ENE','NE','NNE'])
+    feature11 = st.sidebar.slider('WindGustDir', ['W','N','E','S','WSW','SSW','NW','ESE','NNW','SE','SSE','SW','WNW','ENE','NE','NNE'])
+    feature12 = st.sidebar.slider('WindDir3pm', ['W','N','E','S','WSW','SSW','NW','ESE','NNW','SE','SSE','SW','WNW','ENE','NE','NNE'])
+    feature13 = st.sidebar.slider('MinTemp', min_value=-8.50, max_value=33.90, value=50.0)
+    feature14 = st.sidebar.slider('WindSpeed9am', min_value=0.0, max_value=50.0, value=50.0)
+    feature15 = st.sidebar.slider('WindSpeed3pm', min_value=0.0, max_value=50.0, value=50.0)
     
     # Add more features as needed
     
