@@ -29,12 +29,19 @@ def main():
     feature7 = st.sidebar.slider('Pressure3pm', min_value=0.0, max_value=100.0, value=50.0)
     feature8 = st.sidebar.slider('Temp3pm', min_value=0.0, max_value=100.0, value=50.0)
     feature9 = st.sidebar.slider('MaxTemp', min_value=0.0, max_value=100.0, value=50.0)
+    feature10 = st.sidebar.slider('WindDir9am', min_value=0.0, max_value=100.0, value=50.0)
+    feature11 = st.sidebar.slider('WindGustDir', min_value=0.0, max_value=100.0, value=50.0)
+    feature12 = st.sidebar.slider('WindDir3pm', min_value=0.0, max_value=100.0, value=50.0)
+    feature13 = st.sidebar.slider('MinTemp', min_value=0.0, max_value=100.0, value=50.0)
+    feature14 = st.sidebar.slider('WindSpeed9am', min_value=0.0, max_value=100.0, value=50.0)
+    feature15 = st.sidebar.slider('WindSpeed3pm', min_value=0.0, max_value=100.0, value=50.0)
+    
     # Add more features as needed
     
     # Check button
     if st.sidebar.button('Predict'):
         # Combine features into a list
-        features = [feature1, feature2, feature3, feature4, feature5, feature6, feature7, feature8, feature9]  # Add more features as needed
+        features = [feature1, feature2, feature3, feature4, feature5, feature6, feature7, feature8, feature9, feature10, feature11, feature12, feature13, feature14, feature15]  # Add more features as needed
 
         # Predict
         prediction = predict_rainfall(features)
@@ -42,5 +49,5 @@ def main():
         # Display prediction
         st.write('Predicted Rainfall:', prediction, 'mm')
 
-if __name__ == '_main_':
+if __name__ == '__main__':
     main()
