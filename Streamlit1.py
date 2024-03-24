@@ -4,7 +4,7 @@ import pandas as pd
 import joblib
 
 # Load the trained model
-model = joblib.load('weatherforecasting.joblib')  # Replace 'your_trained_model.pkl' with your trained model file
+model = joblib.load('weatherforecasting1.joblib')  # Replace 'your_trained_model.pkl' with your trained model file
 
 # Function to make predictions
 def predict_rainfall(features):
