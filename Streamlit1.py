@@ -1,16 +1,16 @@
-import streamlit as st
-import numpy as np
 import pandas as pd
+from sklearn.preprocessing import LabelEncoder
+import streamlit as st
+import xgboost as xgb
 import joblib
 
 # Load the trained model
-model = joblib.load('weatherforecasting1.joblib')  # Replace 'your_trained_model.pkl' with your trained model file
+model = joblib.load('weatherforecasting1.joblib')  # Replace 'weatherforecasting1.joblib' with your trained model file
 
 # Function to make predictions
 def predict_rainfall(features):
-    features = np.array(features).reshape(1, -1)  # Reshape features to fit the model
     prediction = model.predict(features)
-    return prediction[0]
+    return 'Yes' if prediction[0] == 1 else 'No'
 
 # Streamlit app
 def main():
@@ -38,16 +38,36 @@ def main():
     
     # Add more features as needed
     
+    # Encode categorical variables
+    label_encoders = {}
+    categorical_features = ['RainToday', 'WindDir9am', 'WindGustDir', 'WindDir3pm']
+    for feature_name in categorical_features:
+        label_encoder = LabelEncoder()
+        feature_values = ['No', 'Yes'] if feature_name == 'RainToday' else ['W','N','E','S','WSW','SSW','NW','ESE','NNW','SE','SSE','SW','WNW','ENE','NE','NNE']
+        encoded_values = label_encoder.fit_transform(feature_values)
+        label_encoders[feature_name] = label_encoder
+
+    # Transform features
+    feature3_encoded = label_encoders['RainToday'].transform([feature3])
+    feature10_encoded = label_encoders['WindDir9am'].transform([feature10])
+    feature11_encoded = label_encoders['WindGustDir'].transform([feature11])
+    feature12_encoded = label_encoders['WindDir3pm'].transform([feature12])
+
+    # Combine features into a list
+    features = [
+        feature1, feature2, feature3_encoded[0], feature4, feature5,
+        feature6, feature7, feature8, feature9, feature10_encoded[0],
+        feature11_encoded[0], feature12_encoded[0], feature13,
+        feature14, feature15
+    ]
+
     # Check button
     if st.sidebar.button('Predict'):
-        # Combine features into a list
-        features = [feature1, feature2, feature3, feature4, feature5, feature6, feature7, feature8, feature9, feature10, feature11, feature12, feature13, feature14, feature15]  # Add more features as needed
-
         # Predict
-        prediction = predict_rainfall(features)
+        prediction = predict_rainfall([features])
 
         # Display prediction
-        st.write('Predicted Rainfall:', prediction, 'mm')
+        st.write('Predicted Rainfall:', prediction)
 
 if __name__ == '__main__':
     main()
